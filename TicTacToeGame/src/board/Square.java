@@ -36,5 +36,19 @@ public class Square {
 		return m_squareState;
 	}
 
+	public int getX() {
+		return m_x;
+	}
 	
+	public int getY() {
+		return m_y;
+	}
+	
+	public int getWidth() {
+		return m_width;
+	}
+	
+	public int getHeight() {
+		return m_height;
+	}
 }

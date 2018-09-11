@@ -5,16 +5,21 @@ import java.awt.Graphics;
 
 import javax.swing.JComponent;
 
+import board.Board;
+import board.BoardManager;
+import board.Square;
+import game.Game;
+
 public class GameCanvas extends JComponent {
 	
 	private static final Color COLOR_NEUTRAL = Color.WHITE;
 	private static final Color COLOR_X = Color.RED;
 	private static final Color COLOR_O = Color.BLUE;
 	
-	private Game m_callingGame;
+	private BoardManager m_callingManager;
 	
-	public GameCanvas(Game p_game) {
-		m_callingGame = p_game;
+	public GameCanvas(BoardManager p_manager) {
+		m_callingManager = p_manager;
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -23,7 +28,16 @@ public class GameCanvas extends JComponent {
 	}
 	
 	private void paintSquares(Graphics g) {
-		
+		Square[][] squares = m_callingManager.getBoard().getSquares();
+		for(int i = 0; i < squares.length; i++) {
+			for(int j = 0; j < squares[i].length; j++) {
+				Square sq = squares[i][j];
+				Color sqColor = sq.getSquareState().equals("X") ? COLOR_X : 
+					sq.getSquareState().equals("O") ? COLOR_O : COLOR_NEUTRAL;
+				g.setColor(sqColor);
+				g.fillRect(sq.getX(), sq.getY(), sq.getWidth(), sq.getHeight());
+			}
+		}
 	}
 	
 }
