@@ -16,6 +16,8 @@ public class Game {
 	public static void main(String[] args) {
 		boardManager = new BoardManager();
 		
+		boardManager.generateRandomBoard();
+		
 		window = new JFrame();
 		window.add(boardManager.getGraphics());
 		window.setVisible(true);

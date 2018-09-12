@@ -21,6 +21,23 @@ public class BoardManager {
 		return m_board;
 	}
 	
+	public void generateRandomBoard() {
+		Square[][] squares = m_board.getSquares();
+		
+		for(int i = 0; i < squares.length; i++) {
+			for(int j = 0; j < squares[i].length; j++) {
+				Square sq = squares[i][j];
+				int squareValue = (int)Math.round(Math.random());
+				
+				if(squareValue == 0) {
+					sq.setValueO();
+				} else {
+					sq.setValueX();
+				}
+			}
+		}
+	}
+	
 	public GameCanvas getGraphics() {
 		return graphics;
 	}

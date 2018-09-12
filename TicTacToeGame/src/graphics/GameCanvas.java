@@ -24,6 +24,12 @@ public class GameCanvas extends JComponent {
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
+		int width = m_callingManager.getBoard().getBottomValue();
+		g.setColor(Color.LIGHT_GRAY);
+		g.fillRect(0, 0, 1620, 800);
+		g.setColor(Color.DARK_GRAY);
+		g.fillRect(0, 0, width + 10, width + 10);
 		paintSquares(g);
 	}
 	

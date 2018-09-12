@@ -28,6 +28,8 @@ public class Board {
 	
 	private Square[][] m_squares;
 	
+	private int m_bottomValue;
+	
 	//Board constructor
 	public Board(int p_boardSize) {
 		createSquares(p_boardSize, p_boardSize, SQUARE_SIZE);
@@ -49,10 +51,18 @@ public class Board {
 		for(int i = 0; i < p_rowCount; i++) {
 			//Go through all the columns, j, in a given row, i
 			for(int j = 0; j < p_colCount; j++) {
-				m_squares[i][j] = new Square((SQUARE_SIZE + SQUARE_GAP) * j, (SQUARE_SIZE + SQUARE_GAP) * i, SQUARE_SIZE, SQUARE_SIZE);
+				m_squares[i][j] = new Square(SQUARE_GAP + (SQUARE_SIZE + SQUARE_GAP) * j, SQUARE_GAP + (SQUARE_SIZE + SQUARE_GAP) * i, SQUARE_SIZE, SQUARE_SIZE);
 				m_squares[i][j].setValueEmpty();
+				
+				if(m_bottomValue <= m_squares[i][j].getX() + m_squares[i][j].getWidth()) {
+					m_bottomValue = m_squares[i][j].getX() + m_squares[i][j].getWidth();
+				}
 			}
 		}
+	}
+	
+	public int getBottomValue() {
+		return m_bottomValue;
 	}
 	
 	public Square[][] getSquares(){
