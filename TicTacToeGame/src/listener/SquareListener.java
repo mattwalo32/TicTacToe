@@ -14,29 +14,10 @@ public class SquareListener implements MouseListener{
 		Square[][] squares = Game.getBoardManager().getBoard().getSquares();
 		BoardManager manager = Game.getBoardManager();
 		
-		for(int i = 0; i < squares.length; i++) {
-			for(int j = 0; j < squares[i].length; j++) {
-				Square sq = squares[i][j];
-				int left = sq.getX();
-				int right = left + sq.getWidth();
-				int top = sq.getY();
-				int bottom = top + sq.getHeight();
-				
-				if(e.getX() >= left && e.getX() <= right
-						&& e.getY() >= top && e.getY() <= bottom) {
-					if(manager.getPlayerTurn() == 0) {
-						sq.setValueX();
-					} else {
-						sq.setValueO();
-					}
-					
-					System.out.println("SQUARE [" + i +"][" + j + "] PRESSED");
-					manager.getGraphics().repaint();
-					manager.nextTurn();
-					break;
-				}
-			}
-		}
+		int x = e.getX();
+		int y = e.getY();
+		
+		//TODO make the listener
 	}
 
 	@Override
