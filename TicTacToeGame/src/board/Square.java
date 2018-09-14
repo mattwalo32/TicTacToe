@@ -51,4 +51,10 @@ public class Square {
 	public int getHeight() {
 		return m_height;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		Square sq = (Square) o;
+		return m_squareState.equals(sq.getSquareState());
+	}
 }
