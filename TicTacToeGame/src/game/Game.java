@@ -33,24 +33,6 @@ public class Game {
 	}
 	
 	private static void detectWinner() {
-		Square[][] squares = boardManager.getBoard().getSquares();
-		for (int i = 0; i < squares.length; i++) {
-				if (squares[i][0].equals(squares[i][1]) && squares[i][0].equals(squares[i][2])) {
-					System.out.println("Goodie");
-					
-					
-				}
-			
-		}
-		for (int j = 0; j < squares.length; j++) {
-			if (squares[0][j].equals(squares[1][j]) && squares[0][j].equals(squares[2][j])) {
-				System.out.println("Oofie");
-				
-				
-			}
-		
-	    }
-		
 		
 	}
 	
